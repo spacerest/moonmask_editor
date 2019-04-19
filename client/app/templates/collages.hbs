@@ -1,8 +1,8 @@
 <div class="collage-list">
   {{#each model as |collage|}}
-    <div class="collage">
+    {{#link-to 'collage' collage.id class="collage"}}
       {{collage.description}}
-    </div>
+    {{/link-to}}
   {{/each}}
 </div>
 {{outlet}}
