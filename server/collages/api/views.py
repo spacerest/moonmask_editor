@@ -11,3 +11,11 @@ class collageAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+class collageRudView(generics.RetrieveUpdateDestroyAPIView):
+    resource_name = 'collages'
+    lookup_field = 'id'
+    serializer_class = collageSerializer
+
+    def get_queryset(self):
+        return Collage.objects.all()
