@@ -1,8 +1,10 @@
 from rest_framework import generics, mixins
 from collages.models import Collage
 from .serializers import collageSerializer
+from rest_framework.permissions import IsAuthenticated
 
 class collageAPIView(mixins.CreateModelMixin, generics.ListAPIView):
+    #permission_classes = (IsAuthenticated, )
     resource_name = 'collages'
     serializer_class = collageSerializer
 
@@ -13,6 +15,7 @@ class collageAPIView(mixins.CreateModelMixin, generics.ListAPIView):
         return self.create(request, *args, **kwargs)
 
 class collageRudView(generics.RetrieveUpdateDestroyAPIView):
+    #permission_classes = (IsAuthenticated, )
     resource_name = 'collages'
     lookup_field = 'id'
     serializer_class = collageSerializer

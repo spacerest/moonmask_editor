@@ -11,3 +11,4 @@ tutorial)[https://medium.freecodecamp.org/eli5-full-stack-basics-breakthrough-wi
 
 I added the django rest authentication by following (Will Vincent's Django Rest
 Framework Authentication Tutorial)[https://wsvincent.com/django-rest-framework-authentication-tutorial/]
+(Tutorial on Token Authentication)[https://simpleisbetterthancomplex.com/tutorial/2018/11/22/how-to-implement-token-authentication-using-django-rest-framework.html]
