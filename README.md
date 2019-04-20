@@ -8,3 +8,6 @@ I have, mun fase editor.
 
 I built the base of this project by following (Michael X's Django  EmberJS
 tutorial)[https://medium.freecodecamp.org/eli5-full-stack-basics-breakthrough-with-django-emberjs-402fc7af0e3]
+
+I added the django rest authentication by following (Will Vincent's Django Rest
+Framework Authentication Tutorial)[https://wsvincent.com/django-rest-framework-authentication-tutorial/]
