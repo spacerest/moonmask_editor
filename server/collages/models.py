@@ -8,3 +8,4 @@ def get_upload_path(cls, filename):
 class Collage(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to = get_upload_path, null=True, blank=True)
+    image_url = models.URLField(blank=True, null=True, max_length = 500)
