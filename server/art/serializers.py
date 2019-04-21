@@ -8,7 +8,6 @@ class artworkSerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'image',
-            'author',
             'moonRelativeDate',
             'moonDate',
             'mainImageUrl',
@@ -23,5 +22,6 @@ class artworkSerializer(serializers.ModelSerializer):
             'negativeSpaceTransparency',
             'positiveSpaceTransparency',
             'dimensionality',
-
         )
+
+

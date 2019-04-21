@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class artworkAPIView(mixins.CreateModelMixin, generics.ListAPIView):
     #permission_classes = (IsAuthenticated, )
-    resource_name = 'artwork'
+    resource_name = 'artworks'
     serializer_class = artworkSerializer
 
     def get_queryset(self):
@@ -16,7 +16,7 @@ class artworkAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 
 class artworkRudView(generics.RetrieveUpdateDestroyAPIView):
     #permission_classes = (IsAuthenticated, )
-    resource_name = 'artwork'
+    resource_name = 'artworks'
     lookup_field = 'id'
     serializer_class = artworkSerializer
 

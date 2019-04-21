@@ -11,7 +11,8 @@ class Artwork(models.Model):
     #ember.js are elusive at the moment
     title = models.TextField(max_length=50,
                              default='Untitled')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    #TODO reinstate author after you figure out user auth for ember
+    #author = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="artwork",
                               null=True,
                               blank=True)

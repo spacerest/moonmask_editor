@@ -174,3 +174,8 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = 'api.User'
 REST_USE_JWT = True
+
+#https://github.com/django-json-api/django-rest-framework-json-api/issues/186
+#JSON_API_PLURALIZE_TYPES = True
+#JSON_API_FORMAT_FIELD_NAMES = 'camelize'
+#JSON_API_PLURALIZE_RELATION_TYPE = True #? is this still valid?
