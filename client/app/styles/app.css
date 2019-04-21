@@ -1,37 +1,31 @@
 :root {
-    --color-white: #fff;
-    --color-black: #000;
-    --color-grey: #d2d2d2;
-    --color-purple: #6e6a85;
-    --color-red: #ff0000;
-
-    --font-size:st: 16px;
-    --font-size-lg: 24px;
-
-
-    --box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42),
+  --color-white:  #fff;
+  --color-black:  #000;
+  --color-grey:   #d2d2d2;
+  --color-purple: #6e6a85;
+  --color-red:    #ff0000;
+  --font-size-st: 16px;
+  --font-size-lg: 24px;
+  --box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42),
                 0 3px  20px  0px  rgba(0, 0, 0, 0.12),
                 0 8px  10px -5px  rgba(0, 0, 0, 0.2);
 }
-
 .u-justify-space-between {
-    justify-content: space-between !important;
+  justify-content: space-between !important;
 }
-
 .u-text-danger {
-    color: var(--color-red) !important;
+  color: var(--color-red) !important;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
 }
-
 .container {
-    display: grid;
-    grid-template-rows: 40px calc(100vh - 80px) 40px;
-    height: 100vh;
+  display: grid;
+  grid-template-rows: 40px calc(100vh - 80px) 40px;
+  height: 100vh;
 }
 
 .nav {
@@ -56,11 +50,11 @@ body {
   font-size: var(--font-size-lg);
 }
 
-.collage-list {
+.artwork-list {
   padding: 10px;
   overflow-y: scroll;
 }
-.collage {
+.artwork {
   display: flex;
   justify-content: space-between;
   padding: 15px 10px;
@@ -69,7 +63,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-.collage:hover {
+.artwork:hover {
   background: var(--color-grey);
 }
 
@@ -77,15 +71,19 @@ button {
   cursor: pointer;
 }
 
-.collage.collage--detail {
+.artwork.artwork--detail {
   flex-direction: column;
   justify-content: flex-start;
   max-width: 500px;
   background: var(--color-white);
   cursor: default;
 }
-
-.collage-description {
+.artwork-title {
+  font-size: var(--font-size-lg);
+}
+.artwork-title,
+.artwork-author,
+.artwork-description {
   padding: 10px;
 }
 

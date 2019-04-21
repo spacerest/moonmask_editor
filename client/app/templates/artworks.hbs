@@ -1,0 +1,7 @@
+<div class="artwork-list">
+  {{#each model as |artwork|}}
+    {{#link-to 'artwork' artwork.id class="artwork"}}
+      {{artwork.title}}
+    {{/link-to}}
+  {{/each}}
+</div>

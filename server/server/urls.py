@@ -21,7 +21,9 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/collages/?', include('collages.api.urls',
-                                  namespace='api-collages'))
+                                  namespace='api-collages')),
+    url(r'^api/?',
+        include('api.urls')),
 ]
 
 if settings.DEBUG:

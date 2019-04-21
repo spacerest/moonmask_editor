@@ -7,9 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('collages');
-  this.route('collage', { path: 'collages/:collage_id' });
-  this.route('create-collage');
+  this.route('artworks');
+  this.route('artwork', { path: 'artworks/:artwork_id' });
+  this.route('create-artwork');
 });
 
 export default Router;
