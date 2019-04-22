@@ -1,6 +1,23 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+    //title: DS.attr(),
+    //image: DS.attr(),
+    //moon_date: DS.attr(),
+    //moon_relative_date: DS.attr(),
+    //main_image_url: DS.attr(),
+    //main_image_instagram_url: DS.attr(),
+    //main_image_color: DS.attr(),
+    //mask_positive_space_url: DS.attr(),
+    //mask_positive_space_instagram_url: DS.attr(),
+    //mask_positive_space_color: DS.attr(),
+    //mask_negative_space_url: DS.attr(),
+    //mask_negative_space_instagram_url: DS.attr(),
+    //mask_negative_space_color: DS.attr(),
+    //negative_ppace_transparency: DS.attr(),
+    //positive_space_transparency: DS.attr(),
+    //dimensionality: DS.attr(),
+
     title: DS.attr(),
     image: DS.attr(),
     moonDate: DS.attr(),
