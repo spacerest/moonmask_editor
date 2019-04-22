@@ -75,6 +75,9 @@ class Artwork(models.Model):
                                       null=True,
                                       blank=True)
 
+    def __str__(self):
+        return str(self.title)
+
 
 #very helpful thing about decorators and skipping signals
 #https://stackoverflow.com/a/27161229/5650506
