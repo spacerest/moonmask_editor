@@ -1,54 +1,214 @@
-<div class="artwork artwork--detail">
-  <div class="artwork-title">
-    {{model.title}}
-  </div>
-  <div class="artwork-author">
-    {{model.author}}
-  </div>
-  <div class="artwork-description">
-    <img src='{{model.image}}' />
-  </div>
+{{#if isEditing}}
+      <div class="artwork-image">
+        <img src={{form.image}} />
+      </div>
 
-  <div class="artwork-description">
-    {{model.moonRelativeDate}}
-  </div>
-  <div class="artwork-description">
-    {{model.moonDate}}
-  </div>
-  <div class="artwork-description">
-    {{model.mainImageUrl}}
-  </div>
-  <div class="artwork-description">
-    {{model.mainImageInstagramUrl}}
-  </div>
-  <div class="artwork-description">
-    {{model.mainImageColor}}
-  </div>
-  <div class="artwork-description">
-    {{model.maskPositiveSpaceUrl}}
-  </div>
-  <div class="artwork-description">
-    {{model.maskPositiveSpaceInstagramUrl}}
-  </div>
-  <div class="artwork-description">
-    {{model.maskPositiveSpaceColor}}
-  </div>
-  <div class="artwork-description">
-    {{model.maskNegativeSpaceUrl}}
-  </div>
-  <div class="artwork-description">
-    {{model.maskNegativeSpaceInstagramUrl}}
-  </div>
-  <div class="artwork-description">
-    {{model.maskNegativeSpaceColor}}
-  </div>
-  <div class="artwork-description">
-    {{model.negativeSpaceTransparency}}
-  </div>
-  <div class="artwork-description">
-    {{model.positiveSpaceTransparency}}
-  </div>
-  <div class="artwork-description">
-    {{model.dimensionality}}
-  </div>
-</div>
+    <form class="artwork artwork--detail">
+      <div class="header">
+        Edit
+      </div>
+      <div class="artwork-title">
+        {{input
+        value=form.title
+        name="title"
+        placeholder="Title"
+        autocomplete="off"}}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.moonRelativeDate
+        name="moon relative date"
+        placeholder="moon relative date"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+         {{input
+        value=form.moonDate
+        name="moon date"
+        placeholder="moon date"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.mainImageUrl
+        name="main image url"
+        placeholder="main image url"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.mainImageInstagramUrl
+        name="main image insta url"
+        placeholder="main image insta url"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.mainImageColor
+        name="main image color"
+        placeholder="main image color"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.maskPositiveSpaceUrl
+        name="mask positive space url"
+        placeholder="mask positive space url"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.maskPositiveSpaceInstagramUrl
+        name="mask positive space insta url"
+        placeholder="mask positive space insta url"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.maskPositiveSpaceColor
+        name="mask positive space color"
+        placeholder="mask positive space color"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.maskNegativeSpaceUrl
+        name="mask negative space url"
+        placeholder="mask negative space url"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.maskNegativeSpaceInstagramUrl
+        name="mask negative space insta url"
+        placeholder="mask negative space insta url"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.maskNegativeSpaceColor
+        name="mask negative space color"
+        placeholder="mask negative space color"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.negativeSpaceTransparency
+        name="negative space transparency"
+        placeholder="negative space transparency"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.positiveSpaceTransparency
+        name="positive space transparency"
+        placeholder="positive space transparency"
+        autocomplete="off"
+        }}
+      </div>
+      <div class="artwork-description">
+        {{input
+        value=form.dimensionality
+        name="dimensionality"
+        placeholder="dimensionality"
+        autocomplete="off"
+        }}
+      </div>
+    </form>
+
+    <div class="actions">
+        <div>
+            <button {{action 'update' model}}>Update</button>
+            <button {{action (mut isEditing) false}}>Cancel</button>
+        </div>
+    </div>
+{{else}}
+    <div class="artwork artwork--detail">
+      <div class="artwork-title">
+        {{model.title}}
+      </div>
+      <div class="artwork-author">
+        {{model.author}}
+      </div>
+      <div class="artwork-image">
+        <img src='{{model.image}}' />
+      </div>
+
+      <div class="artwork-description">
+        {{model.moonRelativeDate}}
+      </div>
+      <div class="artwork-description">
+        {{model.moonDate}}
+      </div>
+      <div class="artwork-description">
+        {{model.mainImageUrl}}
+      </div>
+      <div class="artwork-description">
+        {{model.mainImageInstagramUrl}}
+      </div>
+      <div class="artwork-description">
+        {{model.mainImageColor}}
+      </div>
+      <div class="artwork-description">
+        {{model.maskPositiveSpaceUrl}}
+      </div>
+      <div class="artwork-description">
+        {{model.maskPositiveSpaceInstagramUrl}}
+      </div>
+      <div class="artwork-description">
+        {{model.maskPositiveSpaceColor}}
+      </div>
+      <div class="artwork-description">
+        {{model.maskNegativeSpaceUrl}}
+      </div>
+      <div class="artwork-description">
+        {{model.maskNegativeSpaceInstagramUrl}}
+      </div>
+      <div class="artwork-description">
+        {{model.maskNegativeSpaceColor}}
+      </div>
+      <div class="artwork-description">
+        {{model.negativeSpaceTransparency}}
+      </div>
+      <div class="artwork-description">
+        {{model.positiveSpaceTransparency}}
+      </div>
+      <div class="artwork-description">
+        {{model.dimensionality}}
+      </div>
+      <div class="actions {{ if confirmingDelete 'u-justify-space-between' }}">
+        {{#if confirmingDelete}}
+            <div class="u-text-danger">
+                Are you sure you'd like to delete this?
+            </div>
+
+            <div>
+                <button {{action 'delete' model}}>Delete</button>
+                <button {{action (mut confirmingDelete)false}}>
+                    Cancel
+                </button>
+            </div>
+        {{else}}
+            <div>
+                <button {{action (mut isEditing) true}}>Edit</button>
+                <button {{action (mut confirmingDelete)true}}>Delete</button>
+            </div>
+        {{/if}}
+      </div>
+    </div>
+
+
+
+{{/if}}

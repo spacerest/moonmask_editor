@@ -43,7 +43,6 @@ export default Route.extend({
     },
 
     actions: {
-
         create() {
             const form = this.controller.get('form');
             const store = this.get('store');
@@ -64,9 +63,6 @@ export default Route.extend({
                 //negativeSpaceTransparency: form.negativeSpaceTransparency,
                 //positiveSpaceTransparency: form.positiveSpaceTransparency,
                 //dimensionality: form.dimensionality,
-
-
-
                 title: form.title,
                 moonRelativeDate: form.moonRelativeDate,
                 moonDate: form.moonDate,

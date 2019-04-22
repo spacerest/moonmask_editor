@@ -23,9 +23,9 @@ body {
   font-family: Arial;
 }
 .container {
-  display: grid;
-  grid-template-rows: 40px calc(100vh - 80px) 40px;
-  height: 100vh;
+  /*display: grid;
+  grid-template-rows: 40px calc(100vh - 80px) 40px;*/
+  height: 100%;
 }
 
 .nav {
@@ -48,6 +48,10 @@ body {
 .header {
   padding: 10px 0;
   font-size: var(--font-size-lg);
+}
+
+.artwork-image img{
+    width: 20vw;
 }
 
 .artwork-list {

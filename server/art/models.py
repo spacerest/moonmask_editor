@@ -87,10 +87,11 @@ def skip_signal():
 def make_image(sender, instance, **kwargs):
     print("starting make image")
     c = Collage()
-    c.set_mask()
-    c.set_main_image("pink", color="pink")
-    c.set_mask_positive_space("yellow", color="yellow")
-    c.set_mask_negative_space("black", color="black")
+    c.set_mask(relative_date=instance.moon_relative_date,
+               date=instance.moon_date)
+    c.set_main_image("pink", color=instance.main_image_color)
+    c.set_mask_positive_space("yellow", color=instance.mask_positive_space_color)
+    c.set_mask_negative_space("black", color=instance.mask_negative_space_color)
     c.create_collage()
     im = c.get_created_collage()
     file_name=instance.title + ".jpg"
