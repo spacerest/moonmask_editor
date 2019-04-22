@@ -6,7 +6,7 @@ export default Controller.extend({
         const model = this.get('model');
         return {
             title: model.get('title'),
-            image: model.get('image'),
+            image_url: model.get('image_url'),
             moon_relative_date: model.get('moon_relative_date'),
             moon_date: '',
             main_image_url: '',

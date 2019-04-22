@@ -14,14 +14,24 @@ from functools import wraps
 
 # Create your models here.
 
+class CollageImage(models.Model):
+    image = models.ImageField(upload_to="artwork",
+                              null=True,
+                              blank=True)
+
 class Artwork(models.Model):
     title = models.CharField(max_length=50,
                              default='Untitled')
     #TODO reinstate author after you figure out user auth for ember
     #author = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="artwork",
-                              null=True,
-                              blank=True)
+
+    collage_image = models.OneToOneField(CollageImage,
+                                      blank=True,
+                                      null=True,
+                                      on_delete=models.CASCADE)
+    image_url= models.URLField(max_length=5000,
+                            blank=True,
+                            null=True)
     moon_relative_date = models.CharField(max_length=1000,
                                           null=True,
                                           blank=True)
@@ -81,24 +91,33 @@ def skip_signal():
         return _decorator
     return _skip_signal
 
-# method for updating
-@receiver(post_save, sender=Artwork, dispatch_uid="make_image")
+# method for udpating the artwork, which prompts updating the image
+@receiver(post_save, sender=Artwork, dispatch_uid="update_artwork")
+@skip_signal()
+def update_artwork(sender, instance, **kwargs):
+    instance.skip_signal = True
+    if instance.collage_image:
+        instance.collage_image.save()
+    else:
+        instance.collage_image = CollageImage()
+        instance.collage_image.save()
+
+# method for updating the image
+@receiver(post_save, sender=CollageImage, dispatch_uid="make_image")
 @skip_signal()
 def make_image(sender, instance, **kwargs):
-    print("starting make image")
     c = Collage()
-    c.set_mask(relative_date=instance.moon_relative_date,
-               date=instance.moon_date)
-    c.set_main_image("pink", color=instance.main_image_color)
-    c.set_mask_positive_space("yellow", color=instance.mask_positive_space_color)
-    c.set_mask_negative_space("black", color=instance.mask_negative_space_color)
+    c.set_mask(relative_date=instance.artwork.moon_relative_date,
+               date=instance.artwork.moon_date)
+    c.set_main_image("pink", color=instance.artwork.main_image_color)
+    c.set_mask_positive_space("yellow", color=instance.artwork.mask_positive_space_color)
+    c.set_mask_negative_space("black", color=instance.artwork.mask_negative_space_color)
     c.create_collage()
     im = c.get_created_collage()
-    file_name=instance.title + ".jpg"
+    file_name=instance.artwork.title + ".jpg"
     buffer = BytesIO()
     im.save(fp=buffer, format='PNG')
     pillow_image = ContentFile(buffer.getvalue())
-    print("saving...")
     instance.skip_signal = True
     instance.image.save(file_name, InMemoryUploadedFile(
                 pillow_image,
@@ -108,4 +127,5 @@ def make_image(sender, instance, **kwargs):
                 pillow_image.tell,
                 None
     ))
-    print("finished with maek iamge")
+    instance.artwork.image_url = instance.image.url
+    instance.artwork.save()

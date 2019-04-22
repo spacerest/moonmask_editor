@@ -1,8 +1,7 @@
 {{#if isEditing}}
       <div class="artwork-image">
-        <img src={{form.image}} />
+        <img src={{form.imageUrl}} />
       </div>
-
     <form class="artwork artwork--detail">
       <div class="header">
         Edit
@@ -143,7 +142,7 @@
         {{model.author}}
       </div>
       <div class="artwork-image">
-        <img src='{{model.image}}' />
+        <img src='{{model.imageUrl}}' />
       </div>
 
       <div class="artwork-description">
