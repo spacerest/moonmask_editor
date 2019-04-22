@@ -20,6 +20,9 @@ class CollageImage(models.Model):
                               blank=True)
 
 class Artwork(models.Model):
+    #using camel case for model fields because
+    #solutions for dash vs underscore serialization in
+    #ember.js are elusive at the moment
     title = models.CharField(max_length=50,
                              default='Untitled')
     #TODO reinstate author after you figure out user auth for ember
@@ -74,9 +77,6 @@ class Artwork(models.Model):
     dimensionality = models.CharField(max_length=3,
                                       null=True,
                                       blank=True)
-
-    def __str__(self):
-        return str(self.title)
 
 
 #very helpful thing about decorators and skipping signals
