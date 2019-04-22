@@ -5,7 +5,7 @@ export default Controller.extend({
     form: computed(function() {
         return {
             title: '',
-            image: '',
+            image_url: '',
             moon_relative_date: '',
             moon_date: '',
             main_image_url: '',
